@@ -1,0 +1,20 @@
+TERMINAL COMMANDS
+
+ls
+pwd
+hadoop fs -ls 
+gedit filename.txt
+hadoop fs -put filename.txt
+python filename.py
+cat filename.txt | python mapper.py 
+cat filename.txt | python mapper.py  | sort -k1,1 | python reducer.py
+ 
+NAVIGATE TO JAR FILE:
+
+cd /usr  --> ls --> cd lib --> ls --> cd hadoop.o-20-mapreduce --> contib --> streaming --> 1st jar file
+
+hadoop jar usr/lib/hadoop.0-20-mapreduce/contrib/filename.jar -file /home/cloudera/mapper.py -file /home/cloudera/reducer.py -mapper "python mapper.py" -reducer "python reducer.py" -input /user/cloudera/filename.txt -output /user/cloudera/output
+
+hadoop fs -ls /user/cloudera/output
+
+hadoop fs -ls /user/cloudera/output/0000....
